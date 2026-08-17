@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaproveita - Menos Desperdício, Mais Economia</title>
+
     <style>
         :root {
             --primary: #2e7d32;
@@ -22,13 +23,20 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* Header */
+        /* =========================
+           HEADER
+        ========================== */
+
         header {
             background-color: var(--white);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -66,6 +74,10 @@
             font-weight: 500;
         }
 
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         .btn {
             padding: 0.6rem 1.2rem;
             border-radius: 6px;
@@ -73,7 +85,7 @@
             cursor: pointer;
             font-weight: bold;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
 
         .btn-primary {
@@ -90,9 +102,19 @@
             color: var(--white);
         }
 
-        /* Hero */
+        .btn-accent:hover {
+            opacity: 0.9;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80');
+            background:
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80');
+
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -123,7 +145,10 @@
             outline: none;
         }
 
-        /* Sections */
+        /* =========================
+           SEÇÕES
+        ========================== */
+
         .container {
             max-width: 1200px;
             margin: 3rem auto;
@@ -137,7 +162,10 @@
             margin-bottom: 2rem;
         }
 
-        /* Vitrine de Produtos */
+        /* =========================
+           OFERTAS
+        ========================== */
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -201,7 +229,69 @@
             margin-bottom: 1rem;
         }
 
-        /* Planos B2B */
+        /* =========================
+           SOBRE NÓS
+        ========================== */
+
+        .about-section {
+            background: var(--white);
+            padding: 4rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .about-box {
+            background: #e8f5e9;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .about-box h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-list {
+            list-style: none;
+        }
+
+        .about-list li {
+            margin-bottom: 1rem;
+        }
+
+        /* =========================
+           GAMIFICAÇÃO
+        ========================== */
+
+        .gamification {
+            background-color: #e8f5e9;
+            padding: 3rem 0;
+        }
+
+        /* =========================
+           PLANOS
+        ========================== */
+
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -228,7 +318,156 @@
             margin: 1rem 0;
         }
 
-        /* Footer */
+        /* =========================
+           MODAL DE LOGIN
+        ========================== */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .login-box {
+            background: var(--white);
+            width: 100%;
+            max-width: 430px;
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: aparecer 0.25s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .login-logo {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+        }
+
+        .login-submit {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-muted);
+        }
+
+        .switch-form span {
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
             background-color: #1a1a1a;
             color: var(--white);
@@ -238,131 +477,895 @@
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">🌱 Reaproveita</a>
+
+            <a href="#" class="logo">
+                🌱 Reaproveita
+            </a>
+
             <ul class="nav-links">
-                <li><a href="#como-funciona">Como Funciona</a></li>
-                <li><a href="#ofertas">Ofertas</a></li>
-                <li><a href="#planos">Para Parceiros</a></li>
-                <li><a href="#" class="btn btn-primary">Entrar / Cadastrar</a></li>
+
+                <li>
+                    <a href="#sobre">
+                        Sobre Nós
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#ofertas">
+                        Ofertas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#como-funciona">
+                        Como Funciona
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#planos">
+                        Para Parceiros
+                    </a>
+                </li>
+
+                <li>
+                    <button
+                        class="btn btn-primary"
+                        onclick="abrirLogin()">
+                        Entrar / Cadastrar
+                    </button>
+                </li>
+
             </ul>
+
         </nav>
     </header>
 
-    <!-- Hero Section -->
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section class="hero">
-        <h1>Comida boa, desconto de verdade e zero desperdício</h1>
-        <p>Encontre excedentes de padarias, restaurantes e mercados perto de você.</p>
+
+        <h1>
+            Comida boa, desconto de verdade e zero desperdício
+        </h1>
+
+        <p>
+            Encontre excedentes de padarias, restaurantes e mercados perto de você.
+        </p>
+
         <div class="search-box">
-            <input type="text" placeholder="Digite seu endereço ou bairro...">
-            <button class="btn btn-accent">Buscar</button>
+
+            <input
+                type="text"
+                placeholder="Digite seu endereço ou bairro..."
+            >
+
+            <button class="btn btn-accent">
+                Buscar
+            </button>
+
         </div>
+
     </section>
 
-    <!-- Vitrine de Ofertas -->
-    <section class="container" id="ofertas">
-        <h2 class="section-title">Ofertas Próximas de Você</h2>
+
+    <!-- =========================
+         COMO FUNCIONA
+    ========================== -->
+
+    <section class="container" id="como-funciona">
+
+        <h2 class="section-title">
+            Como Funciona
+        </h2>
+
         <div class="grid">
-            
-            <!-- Card 1 (Anúncio Destaque / Pago) -->
+
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Sanduíches">
+
                 <div class="card-body">
-                    <div>
-                        <span class="badge-destaque">Destaque ⭐</span>
-                        <h3>Padaria Central</h3>
-                        <p>Kit 8 Sanduíches Naturais</p>
-                    </div>
-                    <div class="prices">
-                        <span class="price-old">R$ 11,99</span>
-                        <span class="price-new">R$ 4,99</span>
-                    </div>
-                    <div class="safety-info">
-                        <strong>Segurança Alimentar:</strong><br>
-                        • Feito hoje às 08:00<br>
-                        • Conservado sob refrigeração<br>
-                        • Contém glúten e lactose
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">Reservar para Retirada</button>
+
+                    <h3>1️⃣ Encontre</h3>
+
+                    <p>
+                        Procure restaurantes, mercados, padarias e outros
+                        estabelecimentos próximos de você.
+                    </p>
+
                 </div>
+
             </div>
 
-            <!-- Card 2 -->
+
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80" alt="Marmita">
+
                 <div class="card-body">
-                    <div>
-                        <h3>Restaurante Sabor Real</h3>
-                        <p>Refeição Executiva Excedente</p>
-                    </div>
-                    <div class="prices">
-                        <span class="price-old">R$ 24,99</span>
-                        <span class="price-new">R$ 9,99</span>
-                    </div>
-                    <div class="safety-info">
-                        <strong>Segurança Alimentar:</strong><br>
-                        • Feito hoje às 11:30<br>
-                        • Manteve-se em estufa aquecida<br>
-                        • Sem glúten
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">Reservar para Retirada</button>
+
+                    <h3>2️⃣ Escolha</h3>
+
+                    <p>
+                        Veja os alimentos disponíveis e escolha uma oferta
+                        com preço reduzido.
+                    </p>
+
                 </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h3>3️⃣ Reserve</h3>
+
+                    <p>
+                        Faça sua reserva e retire o alimento diretamente
+                        no estabelecimento.
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
+
     </section>
 
-    <!-- Gamificação -->
-    <section style="background-color: #e8f5e9; padding: 3rem 0;">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title">Ganhe Prêmios Evitando o Desperdício 🎮</h2>
-            <p>No Reaproveita você ganha pontos ao completar missões como fazer compras, vender produtos ou realizar login diário.</p>
-            <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-dark);">Suba de nível, ganhe destaques no seu perfil e desfrute de vantagens exclusivas na comunidade!</p>
-        </div>
-    </section>
 
-    <!-- Planos para Estabelecimentos -->
-    <section class="container" id="planos">
-        <h2 class="section-title">Planos para Estabelecimentos</h2>
-        <div class="plans-grid">
-            
-            <div class="plan-card">
-                <h3>Plano Grátis</h3>
-                <div class="plan-price">R$ 0</div>
-                <p>Ideal para quem está começando a evitar o desperdício.</p>
-                <ul style="list-style: none; margin: 1.5rem 0; line-height: 2;">
-                    <li>✓ Até 5 anúncios por mês</li>
-                    <li>✓ Visibilidade padrão no mapa</li>
-                    <li>✓ Painel de gestão básico</li>
+    <!-- =========================
+         SOBRE NÓS
+    ========================== -->
+
+    <section class="about-section" id="sobre">
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h2>
+                    Sobre Nós 🌱
+                </h2>
+
+                <p>
+                    O <strong>Reaproveita</strong> é um aplicativo e site
+                    criado para combater o desperdício de alimentos e,
+                    ao mesmo tempo, ajudar as pessoas a economizarem.
+                </p>
+
+                <p>
+                    Nossa plataforma permite que restaurantes, padarias,
+                    mercados e outros estabelecimentos anunciem alimentos
+                    que não foram vendidos durante o dia por preços mais
+                    acessíveis.
+                </p>
+
+                <p>
+                    Dessa forma, os estabelecimentos conseguem reduzir
+                    prejuízos, os consumidores encontram produtos mais
+                    baratos e uma quantidade menor de alimentos acaba
+                    sendo desperdiçada.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <h3>
+                    Nossa missão
+                </h3>
+
+                <ul class="about-list">
+
+                    <li>
+                        🌎 <strong>Reduzir o desperdício:</strong>
+                        ajudar a evitar que alimentos em boas condições
+                        sejam descartados.
+                    </li>
+
+                    <li>
+                        💰 <strong>Gerar economia:</strong>
+                        oferecer alimentos por preços menores.
+                    </li>
+
+                    <li>
+                        🏪 <strong>Ajudar estabelecimentos:</strong>
+                        transformar alimentos excedentes em novas vendas.
+                    </li>
+
+                    <li>
+                        🤝 <strong>Construir uma comunidade:</strong>
+                        conectar consumidores e estabelecimentos em uma
+                        iniciativa sustentável.
+                    </li>
+
                 </ul>
-                <button class="btn btn-primary">Começar Grátis</button>
+
             </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         OFERTAS
+    ========================== -->
+
+    <section class="container" id="ofertas">
+
+        <h2 class="section-title">
+            Ofertas Próximas de Você
+        </h2>
+
+        <div class="grid">
+
+            <!-- CARD 1 -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+                    alt="Sanduíches"
+                >
+
+                <div class="card-body">
+
+                    <div>
+
+                        <span class="badge-destaque">
+                            Destaque ⭐
+                        </span>
+
+                        <h3>
+                            Padaria Central
+                        </h3>
+
+                        <p>
+                            Kit 8 Sanduíches Naturais
+                        </p>
+
+                    </div>
+
+                    <div class="prices">
+
+                        <span class="price-old">
+                            R$ 11,99
+                        </span>
+
+                        <span class="price-new">
+                            R$ 4,99
+                        </span>
+
+                    </div>
+
+                    <div class="safety-info">
+
+                        <strong>
+                            Segurança Alimentar:
+                        </strong>
+
+                        <br>
+
+                        • Feito hoje às 08:00
+                        <br>
+
+                        • Conservado sob refrigeração
+                        <br>
+
+                        • Contém glúten e lactose
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        style="width: 100%;"
+                        onclick="abrirLogin()">
+
+                        Reservar para Retirada
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80"
+                    alt="Marmita"
+                >
+
+                <div class="card-body">
+
+                    <div>
+
+                        <h3>
+                            Restaurante Sabor Real
+                        </h3>
+
+                        <p>
+                            Refeição Executiva Excedente
+                        </p>
+
+                    </div>
+
+                    <div class="prices">
+
+                        <span class="price-old">
+                            R$ 24,99
+                        </span>
+
+                        <span class="price-new">
+                            R$ 9,99
+                        </span>
+
+                    </div>
+
+                    <div class="safety-info">
+
+                        <strong>
+                            Segurança Alimentar:
+                        </strong>
+
+                        <br>
+
+                        • Feito hoje às 11:30
+                        <br>
+
+                        • Manteve-se em estufa aquecida
+                        <br>
+
+                        • Sem glúten
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        style="width: 100%;"
+                        onclick="abrirLogin()">
+
+                        Reservar para Retirada
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GAMIFICAÇÃO
+    ========================== -->
+
+    <section class="gamification">
+
+        <div class="container" style="text-align: center;">
+
+            <h2 class="section-title">
+                Ganhe Prêmios Evitando o Desperdício 🎮
+            </h2>
+
+            <p>
+                No Reaproveita você ganha pontos ao completar missões
+                como fazer compras, vender produtos ou realizar login diário.
+            </p>
+
+            <p
+                style="
+                    margin-top: 1rem;
+                    font-weight: bold;
+                    color: var(--primary-dark);
+                ">
+
+                Suba de nível, ganhe destaques no seu perfil e desfrute
+                de vantagens exclusivas na comunidade!
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLANOS
+    ========================== -->
+
+    <section class="container" id="planos">
+
+        <h2 class="section-title">
+            Planos para Estabelecimentos
+        </h2>
+
+        <div class="plans-grid">
+
+            <div class="plan-card">
+
+                <h3>
+                    Plano Grátis
+                </h3>
+
+                <div class="plan-price">
+                    R$ 0
+                </div>
+
+                <p>
+                    Ideal para quem está começando a evitar o desperdício.
+                </p>
+
+                <ul
+                    style="
+                        list-style: none;
+                        margin: 1.5rem 0;
+                        line-height: 2;
+                    ">
+
+                    <li>
+                        ✓ Até 5 anúncios por mês
+                    </li>
+
+                    <li>
+                        ✓ Visibilidade padrão no mapa
+                    </li>
+
+                    <li>
+                        ✓ Painel de gestão básico
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="abrirLogin()">
+
+                    Começar Grátis
+
+                </button>
+
+            </div>
+
 
             <div class="plan-card featured">
-                <span class="badge-destaque" style="position: absolute; top: 10px; right: 10px;">Recomendado</span>
-                <h3>Plano Pro</h3>
-                <div class="plan-price">R$ 15<span style="font-size: 1rem;">/mês</span></div>
-                <p>Para quem busca máxima visibilidade e vendas recorrentes.</p>
-                <ul style="list-style: none; margin: 1.5rem 0; line-height: 2;">
-                    <li>✓ Anúncios **ILIMITADOS**</li>
-                    <li>✓ **Destaque** na vitrine do app</li>
-                    <li>✓ Relatórios de impacto e vendas</li>
+
+                <span
+                    class="badge-destaque"
+                    style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                    ">
+
+                    Recomendado
+
+                </span>
+
+                <h3>
+                    Plano Pro
+                </h3>
+
+                <div class="plan-price">
+
+                    R$ 15
+
+                    <span
+                        style="font-size: 1rem;">
+                        /mês
+                    </span>
+
+                </div>
+
+                <p>
+                    Para quem busca máxima visibilidade e vendas recorrentes.
+                </p>
+
+                <ul
+                    style="
+                        list-style: none;
+                        margin: 1.5rem 0;
+                        line-height: 2;
+                    ">
+
+                    <li>
+                        ✓ Anúncios ILIMITADOS
+                    </li>
+
+                    <li>
+                        ✓ Destaque na vitrine do app
+                    </li>
+
+                    <li>
+                        ✓ Relatórios de impacto e vendas
+                    </li>
+
                 </ul>
-                <button class="btn btn-accent">Assinar Pro</button>
+
+                <button
+                    class="btn btn-accent"
+                    onclick="abrirLogin()">
+
+                    Assinar Pro
+
+                </button>
+
             </div>
 
         </div>
+
     </section>
 
-    <!-- Footer -->
+
+    <!-- =========================
+         MODAL LOGIN / CADASTRO
+    ========================== -->
+
+    <div
+        class="modal"
+        id="loginModal">
+
+        <div class="login-box">
+
+            <span
+                class="close-modal"
+                onclick="fecharLogin()">
+
+                &times;
+
+            </span>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+
+                <div class="login-logo">
+                    🌱 Reaproveita
+                </div>
+
+                <p class="login-subtitle">
+                    Entre na sua conta
+                </p>
+
+                <form onsubmit="realizarLogin(event)">
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="loginSenha">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginSenha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary login-submit">
+
+                        Entrar
+
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+
+                    Ainda não possui uma conta?
+
+                    <span onclick="mostrarCadastro()">
+                        Criar conta
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CADASTRO -->
+
+            <div
+                id="cadastroForm"
+                style="display: none;">
+
+                <div class="login-logo">
+                    🌱 Reaproveita
+                </div>
+
+                <p class="login-subtitle">
+                    Crie sua conta
+                </p>
+
+                <form onsubmit="realizarCadastro(event)">
+
+                    <div class="form-group">
+
+                        <label for="nome">
+                            Nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cadastroEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="cadastroEmail"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="tipoUsuario">
+                            Você é:
+                        </label>
+
+                        <select id="tipoUsuario" required>
+
+                            <option value="">
+                                Selecione uma opção
+                            </option>
+
+                            <option value="cliente">
+                                Cliente
+                            </option>
+
+                            <option value="estabelecimento">
+                                Estabelecimento
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cadastroSenha">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="cadastroSenha"
+                            placeholder="Crie uma senha"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary login-submit">
+
+                        Criar conta
+
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+
+                    Já possui uma conta?
+
+                    <span onclick="mostrarLogin()">
+                        Entrar
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
-        <p>&copy; 2026 Reaproveita. Todos os direitos reservados.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #888;">Compromisso integral com as normas de Segurança Alimentar e Vigilância Sanitária.</p>
+
+        <p>
+            &copy; 2026 Reaproveita. Todos os direitos reservados.
+        </p>
+
+        <p
+            style="
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+                color: #888;
+            ">
+
+            Compromisso com a redução do desperdício
+            e a sustentabilidade.
+
+        </p>
+
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const modal = document.getElementById("loginModal");
+
+        const loginForm = document.getElementById("loginForm");
+
+        const cadastroForm =
+            document.getElementById("cadastroForm");
+
+
+        /* Abrir modal */
+
+        function abrirLogin() {
+
+            modal.classList.add("active");
+
+            mostrarLogin();
+
+        }
+
+
+        /* Fechar modal */
+
+        function fecharLogin() {
+
+            modal.classList.remove("active");
+
+        }
+
+
+        /* Mostrar login */
+
+        function mostrarLogin() {
+
+            loginForm.style.display = "block";
+
+            cadastroForm.style.display = "none";
+
+        }
+
+
+        /* Mostrar cadastro */
+
+        function mostrarCadastro() {
+
+            loginForm.style.display = "none";
+
+            cadastroForm.style.display = "block";
+
+        }
+
+
+        /* Login */
+
+        function realizarLogin(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("loginEmail").value;
+
+            alert(
+                "Login realizado com sucesso!\n\n" +
+                "E-mail: " + email
+            );
+
+            fecharLogin();
+
+        }
+
+
+        /* Cadastro */
+
+        function realizarCadastro(event) {
+
+            event.preventDefault();
+
+            const nome =
+                document.getElementById("nome").value;
+
+            alert(
+                "Conta criada com sucesso, " + nome + "!"
+            );
+
+            fecharLogin();
+
+        }
+
+
+        /* Fechar clicando fora da caixa */
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+
+                fecharLogin();
+
+            }
+
+        });
+
+
+        /* Fechar com ESC */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                fecharLogin();
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
